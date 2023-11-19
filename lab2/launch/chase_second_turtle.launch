@@ -1,0 +1,20 @@
+<launch>
+  <!-- Start TurtleSim -->
+  <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" output="screen" required="true"/>
+
+  <!-- Spawn the Second Turtle -->
+  <node pkg="rosservice" type="rosservice" name="spawn_turtle" args="call --wait /spawn '{x: 5.0, y: 5.0, theta: 0.0, name: ''turtle2''}'"/>
+
+  <!-- Start Teleop Twist Keyboard Node for Turtle2 -->
+  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" args="cmd_vel:=/turtle2/cmd_vel" output="screen" required="true">
+    <param name="scale_linear" type="double" value="2.0"/>
+    <param name="scale_angular" type="double" value="1.0"/>
+  </node>
+
+  <!-- Start Turtle Chaser Controller Node with Remapping and Gain Parameters for Turtle2 -->
+  <node pkg="lab2_0036563035" type="turtle_chaser_controller_node.py" name="turtle_chaser_controller_node2" args="turtlemouse_pose:=turtle2/pose">
+    <param name="forward_gain" value="1.0"/>
+    <param name="angular_gain" value="2.0"/>
+    <remap from="chaser_target" to="turtle2/pose"/>
+  </node>
+</launch>

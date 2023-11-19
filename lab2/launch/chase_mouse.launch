@@ -1,0 +1,14 @@
+<launch>
+  <!-- Start TurtleSim -->
+  <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" output="screen" required="true"/>
+
+  <!-- Start TurtleMouse Node -->
+  <node pkg="lab2_0036563035" type="turtle_mouse_node.py" name="turtle_mouse_node" output="screen"/>
+
+  <!-- Start Turtle Chaser Controller Node with Remapping and Gain Parameters -->
+  <node pkg="lab2_0036563035" type="turtle_chaser_controller_node.py" name="turtle_chaser_controller_node">
+    <param name="forward_gain" value="2.0"/>
+    <param name="angular_gain" value="3.0"/>
+    <remap from="chaser_target" to="turtlemouse_pose"/>
+  </node>
+</launch>
