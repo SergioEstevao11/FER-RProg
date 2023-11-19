@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>lab3_0036563035</name>
+  <version>0.0.0</version>
+  <description>The lab3_0036563035 package</description>
+  <maintainer email="sergio@todo.todo">sergio</maintainer>
+  <license>TODO</license>
+  <!-- <url type="website">http://wiki.ros.org/lab3_0036563035</url> -->
+
+  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>rospy</build_depend>
+  <build_depend>tf2_ros</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>visualization_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>visualization_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
