@@ -1,0 +1,14 @@
+<launch>
+    <arg name="package_path" default="$(find slam_rprog)"/>
+    <arg name="world_file" default="$(find slam_rprog)/src/lab6/simple_rps_world/simple_rps.world"/>
+
+    <node pkg="stage_ros" type="stageros" name="stageros" output="screen" args="$(find slam_rprog)/src/lab6/simple_rps_world/simple_rps.world"/>
+   
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">
+        <remap from="scan" to="base_scan"/>
+    </node>
+    
+    <node pkg="rviz" type="rviz" name="rviz"/>
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard"/>
+
+</launch>
