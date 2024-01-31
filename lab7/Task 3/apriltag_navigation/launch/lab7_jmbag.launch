@@ -1,0 +1,15 @@
+<launch>
+
+  <include file="$(find apriltag_ros)/launch/lab_7.launch" />
+
+  <node pkg="stage_ros" type="stageros" name="stageros" output="screen" args="$(find apriltag_navigation)/maps/lab7.world" />
+
+  <node pkg="image_view" type="image_view" name="image_view" respawn="true" output="screen">
+    <remap from="image" to="/tag_detections_image" />
+  </node>
+
+  <node name="apriltag_navigation_node" pkg="apriltag_navigation" type="apriltag_navigation_node" output="screen" />
+
+  <node name="rosbag_player" pkg="rosbag" type="play" args="--clock $(find apriltag_navigation)/bags/lab7_decompressed.bag" output="screen" />
+
+</launch>
