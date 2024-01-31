@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node" output="screen"/>
+  <node pkg="lawnmower_turtle" type="lawnmower_turtle_node" name="lawnmower_turtle_node" output="screen">
+    <param name="use_sim_time" value="true"/>
+  </node>
+</launch>
